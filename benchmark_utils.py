@@ -99,7 +99,7 @@ def kernel_density_estimation_plots(X, title):
     return fig
 
 def gen_data_multi_dim(distType="GaussianMixtureAR1", n=2000, d=200,
-                       working_dir = '/home/hongyu2/TransKG/benchmarks/', reset=False, save=False):
+                       working_dir = './benchmarks/', reset=False, save=False):
     print('creating test data')
     data_path = working_dir + '{}_{}_{}.npy'.format(distType, n, d)
     if save and (not os.path.exists(data_path) or reset):
@@ -132,7 +132,7 @@ def process_digits(dataset):
 
 
 def load_data_multi_dim(distType="GaussianMixtureAR1", n=2000, d=200,
-                       working_dir = '/home/hongyu2/TransKG/benchmarks/'):
+                       working_dir = './benchmarks/'):
     print('loading test data')
     if distType == 'mnist':
         print('MNIST')
@@ -226,7 +226,7 @@ def train_model(xTrain, d, n, distType=None, method=None, second_order=None, cor
         assert second_order is not None
         machine = second_order
     if 'gan' in method and 'wgan' not in method:
-        sys.path.append('/home/hongyu2/TransKG/soft-rank-energy-and-applications/benchmark/')
+        sys.path.append('./soft-rank-energy-and-applications/benchmark/')
         from knockoffGAN import knockoffgan
         import tensorflow as tf
         print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
@@ -313,7 +313,7 @@ def train_model(xTrain, d, n, distType=None, method=None, second_order=None, cor
 
 
     if 'ddlk' in method:
-        sys.path.append('/home/hongyu2/TransKG/benchmarks/ddlk/src/')
+        sys.path.append('./src/')
         import ddlk
         from ddlk import data, utils, mdn, swap
         import pytorch_lightning as pl
@@ -542,7 +542,7 @@ def worker_init_fn(worker_id):
 
     
 def fdr_exp(xTestInput, n = 2000, d = 200, distType="GaussianMixtureAR1", 
-            working_dir = '/home/hongyu2/TransKG/benchmarks/',
+            working_dir = './benchmarks/',
             complex_y_model=False, method=None, machine=None,
             nominal_fdr=0.1, true_feature_n=20, n_repeats=100,
             lasso_coeff=.01, signal_amplitude_vec=[3, 5, 10, 15, 20, 25, 30], reset=False, appendix=None, 
