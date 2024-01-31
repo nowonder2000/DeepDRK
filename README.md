@@ -1,5 +1,7 @@
-# Official Implementation of the DeepDRK model for the paper: "DeepDRK: Deep Dependency Regularized Knockoff for Feature Selection"
+# DeepDRK: Deep Dependency Regularized Knockoff for Feature Selection
 
+
+This repo contains the official implementation of the DeepDRK model.
 
 Simply run the following code
 ```
